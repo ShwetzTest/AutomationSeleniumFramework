@@ -17,7 +17,7 @@ public final class HomePage extends BrowserUtility {
 		launchWebsite(PropertiesUtil.readProperty(Environment.QA,"URL"));
 		// For JSON 
 		
-		launchWebsite(JSONUtility.readJSON(Environment.QA));
+		launchWebsite(JSONUtility.readJSON(Environment.QA).getUrl());
 		maximizeBrowser();
 
 	}

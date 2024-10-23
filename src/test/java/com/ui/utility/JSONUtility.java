@@ -11,7 +11,7 @@ import com.ui.pojos.configJson;
 
 public class JSONUtility {
 	
-	public static String readJSON(Environment env) {
+	public static EnvJSON readJSON(Environment env) {
 	
 	Gson gson =new Gson();
 	File jsonfile = new File(System.getProperty(System.getProperty("user.dir")+"\\config\\config.json"));
@@ -23,7 +23,8 @@ public class JSONUtility {
 		e.printStackTrace();
 	}
 	configJson configJson = gson.fromJson(jsonReader,configJson.class); //correspnding pojo class of JSON
+	@SuppressWarnings("unlikely-arg-type")
 	EnvJSON envVar = configJson.getEnvironments().get(env);
-	return envVar.getUrl();
+	return envVar;
 }
 }

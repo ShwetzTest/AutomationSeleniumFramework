@@ -35,7 +35,8 @@ public class LoginTest {
 
 	}
 	
-	@Test(description = "Verifies if the valid user can login to the application", groups = { "e2e", "sanity" },dataProviderClass = com.ui.dataProvider.LoginDataProvider.class,dataProvider = "LoginExcelDataProvider")
+	@Test(description = "Verifies if the valid user can login to the application", groups = { "e2e", "sanity" },dataProviderClass = com.ui.dataProvider.LoginDataProvider.class,dataProvider = "LoginExcelDataProvider",
+			retryAnalyzer = com.ui.listeners.RetryAnalyzer.class)
 	public void LoginExcelTest(UserCredentials user) {
 
 		assertEquals(homePage.goToLoginPage().doLoginWith(user.getEmail(),user.getPassword()),
